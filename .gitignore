@@ -1,0 +1,31 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.vscode/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+.terraform.lock.hcl
+
+# AWS
+.aws/
+*.pem
+*.key
+
+# Environment files
+.env
+.env.*
+appsettings.Production.json
+
+# Docker
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
