@@ -33,3 +33,8 @@ variable "ecs_security_group_id" {
   description = "Security group ID for ECS tasks"
   type        = string
 }
+
+variable "target_group_arn" {
+  description = "Target group ARN used by the ECS service"
+  type        = string
+}

@@ -8,11 +8,8 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
@@ -35,6 +32,15 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
+
+app.MapGet("/", () => "Zero Downtime API is running!");
+
+app.MapGet("/health", () => Results.Ok(new
+{
+    status = "healthy",
+    service = "ZeroDowntimeApi",
+    timestamp = DateTime.UtcNow
+}));
 
 app.Run();
 

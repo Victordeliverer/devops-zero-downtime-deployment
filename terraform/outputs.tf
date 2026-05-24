@@ -37,3 +37,18 @@ output "ecs_service_name" {
   description = "ECS service name"
   value       = module.ecs.ecs_service_name
 }
+
+output "alb_dns_name" {
+  description = "Public DNS name of the Application Load Balancer"
+  value       = module.alb.alb_dns_name
+}
+
+output "blue_target_group_arn" {
+  description = "Blue target group ARN"
+  value       = module.alb.blue_target_group_arn
+}
+
+output "alb_url" {
+  description = "Public URL of the Application Load Balancer"
+  value       = "http://${module.alb.alb_dns_name}"
+}
