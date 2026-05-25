@@ -36,3 +36,16 @@ module "ecs" {
   ecs_security_group_id = module.networking.ecs_security_group_id
   target_group_arn      = module.alb.blue_target_group_arn
 }
+
+module "codedeploy" {
+  source = "./modules/codedeploy"
+
+  project_name            = var.project_name
+  environment             = var.environment
+  ecs_cluster_name        = module.ecs.ecs_cluster_name
+  ecs_service_name        = module.ecs.ecs_service_name
+  blue_target_group_name  = module.alb.blue_target_group_name
+  green_target_group_name = module.alb.green_target_group_name
+  production_listener_arn = module.alb.production_listener_arn
+  test_listener_arn       = module.alb.test_listener_arn
+}

@@ -33,7 +33,7 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast")
 .WithOpenApi();
 
-app.MapGet("/", () => "Zero Downtime API is running!");
+app.MapGet("/", () => "Zero Downtime API - Version 2 running through Blue/Green!");
 
 app.MapGet("/health", () => Results.Ok(new
 {
